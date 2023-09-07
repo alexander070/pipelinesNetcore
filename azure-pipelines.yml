@@ -17,5 +17,13 @@ steps:
   displayName: 'Install .net core sdk'
   inputs:
     version: 6.x
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'select'
+  displayName: Nuget Restore Dependencies  
+
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
