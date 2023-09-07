@@ -11,12 +11,13 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  sdkVersion: 6.x
 
 steps:
 - task: UseDotNet@2
   displayName: 'Install .net core sdk'
   inputs:
-    version: 6.x
+    version: $(sdkVersion)
 
 - task: NuGetCommand@2
   inputs:
